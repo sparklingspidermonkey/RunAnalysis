@@ -84,3 +84,6 @@ colnames(filtered_data) <- data_cols
 tidy_dataset <- filtered_data %>%
     group_by(subjectId, activity) %>%
     summarise(across(everything(), mean), .groups = 'drop')
+
+# Write the final table out to a text file
+write.table(tidy_dataset, "tidy_dataset.txt", row.name = FALSE)
